@@ -61,7 +61,7 @@ def bot():
     
     if textstart == '/':
         if text[1] == 'b':
-            stocklistr1 = breakr1()
+            stocklistr1 = ["asdf","asdf","asdf","asdf"] #breakr1()
             replyQueue.append(stocklistr1)
             reply(replyToken, replyQueue[:5])
     #     elif text[1] == 'y':
