@@ -61,8 +61,9 @@ def bot():
     
     if textstart == '/':
         if text[1] == 'b':
-            stocklistr1 = ["asdf","asdf","asdf","asdf"] #breakr1()
-            replyQueue.append(stocklistr1)
+            stocklistr1 = breakr1()
+            number = len(stocklistr1)
+            replyQueue.append(number)
             reply(replyToken, replyQueue[:5])
     #     elif text[1] == 'y':
     #         yesterdaymode = text.split(",")[1]
@@ -87,7 +88,7 @@ def bot():
     #         else:
     #             replyQueue.append("กด reset ไปแล้วครับ")
     #             reply(replyToken, replyQueue[:5])   
-    #     return 'OK', 200
+        return 'OK', 200
     elif textstart == '=':
         stockinfo = getstockinfo(text[1:])
         """stockname,stocklow,stocks1,stocksmode1,stocks2,stocksmode2,
