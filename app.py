@@ -59,13 +59,13 @@ def bot():
     text = msg_in_json["events"][0]['message']['text'].lower().strip()
     textstart = text[0]
     
-    if textstart == '/':
-        if text[1] == 'b':
-            stocklistr1 = breakr1()
-            number = len(stocklistr1)
-            numbertext = "stock list r1 {}".format(number)
-            replyQueue.append(numbertext)
-            reply(replyToken, replyQueue[:5])
+    # if textstart == '/':
+    #     if text[1] == 'b':
+    #         stocklistr1 = breakr1()
+    #         number = len(stocklistr1)
+    #         numbertext = "stock list r1 {}".format(number)
+    #         replyQueue.append(numbertext)
+    #         reply(replyToken, replyQueue[:5])
     #     elif text[1] == 'y':
     #         yesterdaymode = text.split(",")[1]
     #         ymodeupdate(yesterdaymode)
@@ -89,8 +89,8 @@ def bot():
     #         else:
     #             replyQueue.append("กด reset ไปแล้วครับ")
     #             reply(replyToken, replyQueue[:5])   
-        return 'OK', 200
-    elif textstart == '=':
+        # return 'OK', 200
+    if textstart == '=':
         stockinfo = getstockinfo(text[1:])
         """stockname,stocklow,stocks1,stocksmode1,stocks2,stocksmode2,
         stocks3,stocksmode3,stockr1,stockrmode1,stockr2,stockrmode2,
