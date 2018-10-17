@@ -15,6 +15,7 @@ from flask import Flask, request
 import json
 import requests
 from googlesheet import getstockinfo
+from breakr1 import breakr1
 
 # ตรง YOURSECRETKEY ต้องนำมาใส่เองครับจะกล่าวถึงในขั้นตอนต่อๆ ไป
 global LINE_API_KEY
@@ -58,12 +59,11 @@ def bot():
     text = msg_in_json["events"][0]['message']['text'].lower().strip()
     textstart = text[0]
     
-    # if textstart == '/':
-    #     if text[1] == 't':
-    #         todaymode = text.split(",")[1]
-    #         modeupdate(todaymode)
-    #         replyQueue.append("tmode updated : {}".format(todaymode))
-    #         reply(replyToken, replyQueue[:5])
+    if textstart == '/':
+        if text[1:] == 'breakr1':
+            stocklistr1 = breakr1()
+            replyQueue.append(stocklistr1)
+            reply(replyToken, replyQueue[:5])
     #     elif text[1] == 'y':
     #         yesterdaymode = text.split(",")[1]
     #         ymodeupdate(yesterdaymode)
@@ -88,7 +88,7 @@ def bot():
     #             replyQueue.append("กด reset ไปแล้วครับ")
     #             reply(replyToken, replyQueue[:5])   
     #     return 'OK', 200
-    if textstart == '=':
+    elif textstart == '=':
         stockinfo = getstockinfo(text[1:])
         """stockname,stocklow,stocks1,stocksmode1,stocks2,stocksmode2,
         stocks3,stocksmode3,stockr1,stockrmode1,stockr2,stockrmode2,
