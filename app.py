@@ -63,7 +63,8 @@ def bot():
         if text[1] == 'b':
             stocklistr1 = breakr1()
             number = len(stocklistr1)
-            replyQueue.append(number)
+            numbertext = "stock list r1 {}".format(number)
+            replyQueue.append(numbertext)
             reply(replyToken, replyQueue[:5])
     #     elif text[1] == 'y':
     #         yesterdaymode = text.split(",")[1]
