@@ -60,7 +60,7 @@ def bot():
     textstart = text[0]
     
     if textstart == '/':
-        if text[1:] == 'breakr1':
+        if text[1] == 'b':
             stocklistr1 = breakr1()
             replyQueue.append(stocklistr1)
             reply(replyToken, replyQueue[:5])
