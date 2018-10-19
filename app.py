@@ -107,7 +107,7 @@ def bot():
         reply(replyToken, replyQueue[:5])
         return 'OK', 200
     elif textstart == '.':
-        vdoLink = "https://drive.google.com/file/d/1Gos9UbmCou-AXFiCzAaK62NuiaGEjTOb/view?usp=sharing"
+        vdoLink = "https://github.com/kkdp13/cbtrader/blob/master/juti.mp4"
         replyQueue.append(vdoLink)
         replyvdo(replyToken, replyQueue[:5])
         return 'OK', 200
