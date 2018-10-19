@@ -148,11 +148,11 @@ def replyvdo(replyToken, vdoLink):
         video.append({
             "type":"video",
             "originalContentUrl":vdo,
-            "previewImageUrl": "https://example.com/preview.jpg"
+            "previewImageUrl": "https://github.com/kkdp13/cbtrader/blob/master/juti.jpg"
         })
     data = json.dumps({
         "replyToken":replyToken,
-        "messages":video
+        "video":video
     })
     requests.post(LINE_API, headers=headers, data=data)
     return
