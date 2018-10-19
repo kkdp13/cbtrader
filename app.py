@@ -106,11 +106,11 @@ def bot():
         replyQueue.append(info+info2+info3+info4)
         reply(replyToken, replyQueue[:5])
         return 'OK', 200
-    elif textstart == '.':
-        vdoLink = "https://raw.githubusercontent.com/kkdp13/cbtrader/master/juti.mp4"
-        replyQueue.append(vdoLink)
-        replyvdo(replyToken, replyQueue[:5])
-        return 'OK', 200
+    # elif textstart == '.':
+    #     vdoLink = "https://raw.githubusercontent.com/kkdp13/cbtrader/master/juti.mp4"
+    #     replyQueue.append(vdoLink)
+    #     replyvdo(replyToken, replyQueue[:5])
+    #     return 'OK', 200
     else:
         # replyQueue.append('please start with / for asking bot')
         # reply(replyToken, replyQueue[:5]) 
@@ -136,26 +136,26 @@ def reply(replyToken, textList):
     requests.post(LINE_API, headers=headers, data=data)
     return
 
-def replyvdo(replyToken, vdoLink):
-    # Method สำหรับตอบกลับข้อความประเภท text กลับครับ เขียนแบบนี้เลยก็ได้ครับ
-    LINE_API = 'https://api.line.me/v2/bot/message/reply'
-    headers = {
-        'Content-Type': 'application/json; charset=UTF-8',
-        'Authorization': LINE_API_KEY
-    }
-    video = []
-    for vdo in vdoLink:
-        video.append({
-            "type":"video",
-            "originalContentUrl":vdo,
-            "previewImageUrl": "https://github.com/kkdp13/cbtrader/blob/master/juti.jpg"
-        })
-    data = json.dumps({
-        "replyToken":replyToken,
-        "messages":video
-    })
-    requests.post(LINE_API, headers=headers, data=data)
-    return
+# def replyvdo(replyToken, vdoLink):
+#     # Method สำหรับตอบกลับข้อความประเภท text กลับครับ เขียนแบบนี้เลยก็ได้ครับ
+#     LINE_API = 'https://api.line.me/v2/bot/message/reply'
+#     headers = {
+#         'Content-Type': 'application/json; charset=UTF-8',
+#         'Authorization': LINE_API_KEY
+#     }
+#     video = []
+#     for vdo in vdoLink:
+#         video.append({
+#             "type":"video",
+#             "originalContentUrl":vdo,
+#             "previewImageUrl": "https://github.com/kkdp13/cbtrader/blob/master/juti.jpg"
+#         })
+#     data = json.dumps({
+#         "replyToken":replyToken,
+#         "messages":video
+#     })
+#     requests.post(LINE_API, headers=headers, data=data)
+#     return
 
 if __name__ == '__main__':
     app.run()
