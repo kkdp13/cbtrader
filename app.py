@@ -152,7 +152,7 @@ def replyvdo(replyToken, vdoLink):
         })
     data = json.dumps({
         "replyToken":replyToken,
-        "video":video
+        "messages":video
     })
     requests.post(LINE_API, headers=headers, data=data)
     return
